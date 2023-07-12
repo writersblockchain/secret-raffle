@@ -23,7 +23,7 @@ function App() {
       <p className="mt-4 text-center text-sm text-gray-400">
         Built on{" "}
         <a
-          href="https://docs.scrt.network/secret-network-documentation/"
+          href="https://docs.scrt.network/secret-network-documentation/development/development-concepts/randomness-api/native-on-chain-randomness"
           className="font-semibold leading-6 text-indigo-400 hover:text-indigo-300"
         >
           Secret.
