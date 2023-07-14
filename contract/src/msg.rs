@@ -1,9 +1,11 @@
+use cosmwasm_std::Binary;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
 pub struct InstantiateMsg {
     pub current_raffle_number: u32,
+    pub random_binary: Option<Binary>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
@@ -21,4 +23,5 @@ pub enum QueryMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
 pub struct RaffleNumberResponse {
     pub current_raffle_number: u32,
+    pub random_binary: Option<Binary>,
 }
