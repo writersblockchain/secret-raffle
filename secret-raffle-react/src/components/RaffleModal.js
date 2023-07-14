@@ -2,7 +2,12 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
-export default function Example({ open, setOpen, querySpinTx }) {
+export default function Example({
+  open,
+  setOpen,
+  querySpinTx,
+  querySpinBinary,
+}) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -38,13 +43,27 @@ export default function Example({ open, setOpen, querySpinTx }) {
                     />
                   </div>
                   <div className="mt-3 text-center sm:mt-5">
-                    <Dialog.Title
-                      as="h3"
-                      className="text-base font-semibold leading-6 text-gray-900"
-                    >
-                      Your verifiable random number is:{" "}
-                      {JSON.stringify(querySpinTx)}
-                    </Dialog.Title>
+                    <div className="text-base font-semibold leading-6 text-gray-900">
+                      <p>Value received from SecretVRF:</p>
+                      <p className="text-xs text-custom-green font-bold">
+                        {JSON.stringify(querySpinBinary).replace(/"/g, "")}
+                      </p>
+                      <p>
+                        This value was used as input in{" "}
+                        <a
+                          className="text-custom-pink"
+                          href="https://github.com/writersblockchain/secret-raffle/blob/c865ab872b74076a8e646ea6af4f2823a570766e/contract/src/contract.rs#L42s"
+                        >
+                          this formula
+                        </a>{" "}
+                        to determine your random number, which is:{" "}
+                      </p>
+                      <p className="text-custom-green">
+                        {" "}
+                        {JSON.stringify(querySpinTx)}
+                      </p>
+                    </div>
+
                     <div className="mt-2"></div>
                   </div>
                 </div>

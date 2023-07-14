@@ -3,7 +3,8 @@ import { useState } from "react";
 import RaffleModal from "./RaffleModal";
 
 export default function RaffleForm() {
-  const { try_spin, query_spin, querySpinTx } = SecretjsFunctions();
+  const { try_spin, query_spin, querySpinTx, querySpinBinary } =
+    SecretjsFunctions();
 
   const [max, setMax] = useState("");
   const [open, setOpen] = useState(false);
@@ -49,7 +50,12 @@ export default function RaffleForm() {
             Submit
           </button>
         </form>
-        <RaffleModal open={open} setOpen={setOpen} querySpinTx={querySpinTx} />
+        <RaffleModal
+          open={open}
+          setOpen={setOpen}
+          querySpinTx={querySpinTx}
+          querySpinBinary={querySpinBinary}
+        />
       </div>
     </div>
   );

@@ -29,6 +29,15 @@ function App() {
           Secret.
         </a>
       </p>
+      <p className="mt-2 text-center text-sm text-gray-400">
+        View source code on{" "}
+        <a
+          href="https://github.com/writersblockchain/secret-raffle"
+          className="font-semibold leading-6 text-indigo-400 hover:text-indigo-300"
+        >
+          Github
+        </a>
+      </p>
     </div>
   );
 }

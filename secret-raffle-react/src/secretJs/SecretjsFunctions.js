@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { SecretjsContext } from "./SecretjsContext";
 
 const contractCodeHash =
-  "6877ed05df499c9e98bf40d09c779eceddbe39f0ee9d5abc6f911bf4a12061e6";
-const contractAddress = "secret1rmpekfgvypzt98tuakzm76jeg54afrd8phwew8";
+  "236456414a260a62e57f8142b4d3793df1072c6dd9cc76bc9f5817a72872d2a3";
+const contractAddress = "secret1e4a9u4zv43tl0098t3zs9suqlz9ckjtv7z6wt4";
 
 const SecretjsFunctions = () => {
   const { secretjs, secretAddress } = useContext(SecretjsContext);
   const [querySpinTx, setQuerySpinTx] = useState(null);
+  const [querySpinBinary, setQuerySpinBinary] = useState("");
 
   let try_spin = async (max) => {
     const tx = await secretjs.tx.compute.executeContract(
@@ -38,9 +39,10 @@ const SecretjsFunctions = () => {
     });
     // Access the 'current_raffle_number' field
     const raffleNumber = tx.current_raffle_number;
-
+    const spinBinary = tx.random_binary;
     // Save the number into the state
     setQuerySpinTx(raffleNumber);
+    setQuerySpinBinary(spinBinary);
     console.log(tx);
   };
 
@@ -49,6 +51,7 @@ const SecretjsFunctions = () => {
     try_spin,
     query_spin,
     querySpinTx,
+    querySpinBinary,
   };
 };
 
