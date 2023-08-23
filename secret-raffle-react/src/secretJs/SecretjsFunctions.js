@@ -3,7 +3,7 @@ import { SecretjsContext } from "./SecretjsContext";
 
 const contractCodeHash =
   "236456414a260a62e57f8142b4d3793df1072c6dd9cc76bc9f5817a72872d2a3";
-const contractAddress = "secret1e4a9u4zv43tl0098t3zs9suqlz9ckjtv7z6wt4";
+const contractAddress = "secret1sszujacjmtfcm2yc37gvl57sy06qcs86wqrwp2";
 
 const SecretjsFunctions = () => {
   const { secretjs, secretAddress } = useContext(SecretjsContext);

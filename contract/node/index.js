@@ -6,14 +6,14 @@ dotenv.config();
 const wallet = new Wallet(process.env.MNEMONIC);
 
 const contract_wasm = fs.readFileSync("../contract.wasm.gz");
-const codeId = 22400;
+const codeId = 757;
 const contractCodeHash =
   "236456414a260a62e57f8142b4d3793df1072c6dd9cc76bc9f5817a72872d2a3";
-const contractAddress = "secret1e4a9u4zv43tl0098t3zs9suqlz9ckjtv7z6wt4";
+const contractAddress = "secret1sszujacjmtfcm2yc37gvl57sy06qcs86wqrwp2";
 
 const secretjs = new SecretNetworkClient({
-  chainId: "pulsar-2",
-  url: "https://api.pulsar.scrttestnet.com",
+  chainId: "pulsar-3",
+  url: "https://api.pulsar3.scrttestnet.com",
   wallet: wallet,
   walletAddress: wallet.address,
 });
@@ -69,7 +69,7 @@ let instantiate_contract = async () => {
   console.log(contractAddress);
 };
 
-// instantiate_contract();
+instantiate_contract();
 
 let try_spin = async () => {
   const tx = await secretjs.tx.compute.executeContract(
@@ -101,4 +101,4 @@ let query_spin = async () => {
   console.log(tx);
 };
 
-query_spin();
+// query_spin();
