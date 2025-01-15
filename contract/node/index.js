@@ -1,15 +1,15 @@
 import { SecretNetworkClient, Wallet } from "secretjs";
 import * as fs from "fs";
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
-const wallet = new Wallet(process.env.MNEMONIC);
+const wallet = new Wallet("desk pigeon hammer sleep only mistake stool december offer patrol once vacant");
 
-const contract_wasm = fs.readFileSync("../contract.wasm.gz");
-const codeId = 757;
+const contract_wasm = fs.readFileSync("./contract.wasm.gz");
+const codeId = 12991;
 const contractCodeHash =
-  "236456414a260a62e57f8142b4d3793df1072c6dd9cc76bc9f5817a72872d2a3";
-const contractAddress = "secret1sszujacjmtfcm2yc37gvl57sy06qcs86wqrwp2";
+  "74807322a4b78b95204825da46dee59294ee1bcf1797c29d6e9fed687840d3d0";
+const contractAddress = "secret1hxhp7vu3eywv20sr8upl427jdcjlf7fgaq3wpd";
 
 const secretjs = new SecretNetworkClient({
   chainId: "pulsar-3",
@@ -69,7 +69,7 @@ let instantiate_contract = async () => {
   console.log(contractAddress);
 };
 
-instantiate_contract();
+// instantiate_contract();
 
 let try_spin = async () => {
   const tx = await secretjs.tx.compute.executeContract(
@@ -78,7 +78,7 @@ let try_spin = async () => {
       contract_address: contractAddress,
       msg: {
         spin_raffle_wheel: {
-          max: 400,
+          max: 50,
         },
       },
       code_hash: contractCodeHash,
